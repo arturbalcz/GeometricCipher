@@ -4,6 +4,12 @@
             "type": "java",
             "name": "CodeLens (Launch) - Cipher",
             "request": "launch",
+            "mainClass": "Cipher"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Cipher",
+            "request": "launch",
             "mainClass": "Cipher",
             "projectName": "GeometricCipher_7281cc84"
         }
