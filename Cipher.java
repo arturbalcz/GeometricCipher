@@ -5,13 +5,24 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Calendar;
 
 public class Cipher {
 
     private static final String key = "Wikipedia is a multilingual, web-based, free-content encyclopedia project supported by the Wikimedia Foundation and based on a model of openly editable content. The name \"Wikipedia\" is a portmanteau of the words wiki (a technology for creating collaborative websites, from the Hawaiian word wiki, meaning \"quick\") and encyclopedia. Wikipedia's articles provide links designed to guide the user to related pages with additional information."; 
 
     public static void main(String[] args) throws IOException {
-        File file = new File("D:\\artur\\Dokumenty\\_Dokumenty\\_PUT\\POD\\lab1\\GeometricCipher\\text.txt"); 
+        String readFilepath = ".\\text.txt"; 
+        String writeFilepath = "encrypted" + Calendar.getInstance().getTimeInMillis() + ".txt"; 
+
+        if(args.length>0) {
+            readFilepath = args[0]; 
+            if(args.length>1) {
+                writeFilepath = args[1]; 
+            }
+        }
+
+        File file = new File(readFilepath); 
         BufferedReader reader = null; 
         try {
             reader = new BufferedReader(new FileReader(file)); 
@@ -33,7 +44,7 @@ public class Cipher {
         String code = codingMatrix.codeText(text);
 
         System.out.println("Writing to file");
-        Files.write(Paths.get("cryptogram.txt"), code.getBytes());
+        Files.write(Paths.get(writeFilepath), code.getBytes());
         reader.close();
         // codingMatrix.debug();
     }
