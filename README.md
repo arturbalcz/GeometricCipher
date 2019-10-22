@@ -1,4 +1,5 @@
 # GeometricCipher
 
-javac Cipher.java \n
-java Cipher <input_file> <output_file>
+## javac Cipher.java 
+
+## java Cipher <input_file> <output_file> 
